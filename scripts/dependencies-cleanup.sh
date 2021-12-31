@@ -1,0 +1,1 @@
+find ./../dependencies -mindepth 1 '!' -path './../dependencies/*/docs/*' -delete

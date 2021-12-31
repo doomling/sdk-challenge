@@ -1,0 +1,6 @@
+[submodule "dependencies/kernel"]
+	path = dependencies/kernel
+	url = https://github.com/decentraland/kernel
+[submodule "dependencies/catalyst"]
+	path = dependencies/catalyst
+	url = https://github.com/decentraland/catalyst

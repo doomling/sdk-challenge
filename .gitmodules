@@ -4,3 +4,9 @@
 [submodule "src/dependencies/kernel"]
 	path = src/dependencies/kernel
 	url = https://github.com/decentraland/kernel
+[submodule "src/dependencies/decentraland-rpc"]
+	path = src/dependencies/decentraland-rpc
+	url = https://github.com/decentraland/decentraland-rpc
+[submodule "src/dependencies/unity-renderer"]
+	path = src/dependencies/unity-renderer
+	url = https://github.com/decentraland/unity-renderer

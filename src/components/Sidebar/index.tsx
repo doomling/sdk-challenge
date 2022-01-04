@@ -3,7 +3,6 @@ import importedDocs from "./../../data/documents.json";
 import { Docs } from "types/Docs";
 import Tree from "../../components/Tree";
 import "./style.css";
-import { useParams } from "react-router";
 
 const docs: Docs = importedDocs;
 

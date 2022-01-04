@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./style.css";
 import caret from "./caret.png";
 import { useParams } from "react-router";
@@ -11,13 +11,13 @@ interface Props {
   depth: number;
 }
 
-function Directory({ name, depth, children, formattedName }: Props) {
+function ParentItem({ name, depth, children, formattedName }: Props) {
   const params = useParams();
   const [open, setOpen] = useState(isInPath());
 
   function isInPath() {
     const pathArr: string[] | undefined = params["*"]?.split("/");
-    return pathArr?.includes(name) || name == params.repo || name == "docs";
+    return pathArr?.includes(name) || name === params.repo || name === "docs";
   }
 
   return (
@@ -30,7 +30,11 @@ function Directory({ name, depth, children, formattedName }: Props) {
         onClick={() => setOpen((prevState) => !prevState)}
       >
         {formattedName}
-        <img src={caret} className={open ? "caret open" : "caret"} />
+        <img
+          src={caret}
+          className={open ? "caret open" : "caret"}
+          alt="toggle menu"
+        />
       </div>
       <div className={open ? "children-wrapper" : "children-wrapper collapsed"}>
         {children}
@@ -39,4 +43,4 @@ function Directory({ name, depth, children, formattedName }: Props) {
   );
 }
 
-export default Directory;
+export default ParentItem;

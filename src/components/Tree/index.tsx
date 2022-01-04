@@ -1,9 +1,8 @@
 import { Doc } from "types/Doc";
 import { Docs } from "../../types/Docs";
-import Directory from "components/directory";
+import ParentItem from "components/ParentItem";
 import { Link, useParams } from "react-router-dom";
 import "./style.css";
-import { useState } from "react";
 
 interface Props {
   isDirectory: boolean;
@@ -19,7 +18,7 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
   const isActive = getIsActive();
 
   function getIsActive() {
-    return getFileName() == name;
+    return getFileName() === name;
   }
 
   function getFileName() {
@@ -38,8 +37,8 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
   return (
     <>
       {isDirectory ? (
-        name != "images" && (
-          <Directory
+        name !== "images" && (
+          <ParentItem
             formattedName={nameFormatter(name)}
             name={name}
             depth={depth}
@@ -60,7 +59,7 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
                   />
                 );
               })}
-          </Directory>
+          </ParentItem>
         )
       ) : (
         <div style={{ paddingLeft: `${10 * depth}px` }}>

@@ -9,17 +9,17 @@ function MarkdownRender() {
   const [markdown, setMarkdown] = useState("");
   const params = useParams();
 
-  function getContent() {
-    import(`../../dependencies/${params.repo}/docs/${params["*"]}`).then(
-      async (data) => {
-        const md = await fetch(data.default);
-        const mdData = await md.text();
-        setMarkdown(mdData);
-      }
-    );
-  }
-
   useEffect(() => {
+    function getContent() {
+      import(`../../dependencies/${params.repo}/docs/${params["*"]}`).then(
+        async (data) => {
+          const md = await fetch(data.default);
+          const mdData = await md.text();
+          setMarkdown(mdData);
+        }
+      );
+    }
+
     getContent();
   }, [params]);
 

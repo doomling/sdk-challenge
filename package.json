@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "generate-local-data": "git submodule update --recursive && ./scripts/dependencies-cleanup.sh && node './utils/readfiles.js'",
+    "generate-local-data": "git submodule update --init --recursive && ./scripts/dependencies-cleanup.sh && node './utils/readfiles.js'",
     "generate-deploy-data": "npm run generate-local-data && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,1 +1,1 @@
-find ./src/dependencies -mindepth 1 '!' -path './src/dependencies/*/docs/*' -delete
+find ./src/dependencies -mindepth 2 '!' -path './src/dependencies/*/docs' '!' -path './src/dependencies/*/docs/*' -prune -exec rm -rf {} \;

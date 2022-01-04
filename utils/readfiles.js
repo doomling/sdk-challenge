@@ -5,8 +5,7 @@ const fs = require("fs");
 let currentId = 0;
 
 mapFoldersAndFiles("dependencies").then((files) => {
-  console.log(files);
-  fs.writeFile("./test.json", JSON.stringify(files), (err) => {
+  fs.writeFile("./src/data/documents.json", JSON.stringify(files), (err) => {
     if (err) {
       console.error(err);
       return;

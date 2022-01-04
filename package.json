@@ -1,5 +1,5 @@
 {
-  "name": "web3-challenge",
+  "name": "sdk-challenge",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,14 +13,18 @@
     "decentraland-ui": "^3.13.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-markdown": "^7.1.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "remark-gfm": "^3.0.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "update": "git submodule update --remote --merge",
+    "buildo": "node './utils/readfiles.js' && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

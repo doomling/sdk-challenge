@@ -1,0 +1,11 @@
+.directory {
+  max-height: auto;
+  color: blue;
+  text-decoration: underline;
+  transition: all 1s ease-in;
+}
+
+.closed {
+  transition: all 1s ease-in;
+  max-height: 0;
+}

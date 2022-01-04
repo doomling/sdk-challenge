@@ -9,3 +9,11 @@
   transition: all 1s ease-in;
   max-height: 0;
 }
+
+.link {
+  padding: 0 15px;
+}
+
+.link.active {
+  font-weight: bold;
+}

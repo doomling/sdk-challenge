@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
+import SyntaxHighlighter from "react-syntax-highlighter";
 import "./style.css";
 
 function MarkdownRender() {
@@ -32,6 +33,20 @@ function MarkdownRender() {
     <ReactMarkdown
       remarkPlugins={[[remarkGfm]]}
       transformImageUri={transformImageUri}
+      components={{
+        code({ node, inline, className, children, ...props }) {
+          return !inline ? (
+            <SyntaxHighlighter
+              children={String(children).replace(/\n$/, "")}
+              PreTag="div"
+            />
+          ) : (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          );
+        },
+      }}
     >
       {markdown && markdown}
     </ReactMarkdown>

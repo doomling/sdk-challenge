@@ -10,12 +10,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-syntax-highlighter": "^13.5.2",
     "decentraland-ui": "^3.13.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^7.1.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "react-syntax-highlighter": "^15.4.5",
     "remark-gfm": "^3.0.1",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
@@ -23,8 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "update": "git submodule update --remote --merge",
-    "buildo": "node './utils/readfiles.js' && react-scripts build",
+    "generate-local-data": "git submodule update --recursive && ./scripts/dependencies-cleanup.sh && node './utils/readfiles.js'",
+    "generate-deploy-data": "npm run generate-local-data && npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

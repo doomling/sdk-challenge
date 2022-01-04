@@ -3,26 +3,23 @@ const path = require("path");
 const fs = require("fs");
 
 let currentId = 0;
+let missingFolders = 1;
 
-mapFoldersAndFiles("dependencies").then((files) => {
-  fs.writeFile("./src/data/documents.json", JSON.stringify(files), (err) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log("data file generated succesfully");
-  });
-});
+mapFoldersAndFiles("dependencies");
 
 function mapFoldersAndFiles(name, parentId = currentId, files = {}) {
-  const directoryPath = path.join(__dirname, `./../${name}`);
+  const directoryPath = path.join(__dirname, `./../src/${name}`);
   return new Promise((resolve, reject) => {
     fs.readdir(directoryPath, { withFileTypes: true }, (err, items) => {
+      missingFolders -= 1;
       if (err) {
         return console.log(`Unable to scan directory: ${err}`);
       }
-      items.map((item) => {
+
+      items.forEach((item) => {
         currentId += 1;
+        if (item.isDirectory()) missingFolders += 1;
+
         const newItem = {
           name: item.name,
           path: `${name}/${item.name}`,
@@ -30,7 +27,6 @@ function mapFoldersAndFiles(name, parentId = currentId, files = {}) {
           isDirectory: item.isDirectory(),
           children: [],
         };
-
         files[currentId] = newItem;
 
         if (parentId != 0) {
@@ -38,11 +34,23 @@ function mapFoldersAndFiles(name, parentId = currentId, files = {}) {
         }
 
         if (item.isDirectory()) {
-          resolve(mapFoldersAndFiles(`${name}/${item.name}`, currentId, files));
+          return mapFoldersAndFiles(`${name}/${item.name}`, currentId, files);
         }
       });
 
-      resolve(files);
+      if (missingFolders == 0) {
+        writeFile(files);
+      }
     });
+  });
+}
+
+function writeFile(files) {
+  fs.writeFile("./src/data/documents.json", JSON.stringify(files), (err) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log("data file generated succesfully");
   });
 }

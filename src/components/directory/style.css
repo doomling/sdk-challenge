@@ -8,24 +8,24 @@
 }
 
 .children-wrapper {
-  height: auto;
-  transition: all 1s ease-in;
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in-out;
 }
 
-.children-wrapper-collapsed {
-  height: 0;
+.collapsed {
+  max-height: 0px;
   overflow: hidden;
-  transition: all 1s ease-in;
+  transition: max-height 0.5s ease-in-out;
 }
 
 .caret {
   height: 10px;
   padding: 0 10px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .open {
   display: inline-block;
   transform: rotate(90deg);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }

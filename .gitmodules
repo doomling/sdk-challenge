@@ -1,6 +1,6 @@
-[submodule "dependencies/kernel"]
-	path = src/dependencies/kernel
-	url = https://github.com/decentraland/kernel
-[submodule "dependencies/catalyst"]
+[submodule "src/dependencies/catalyst"]
 	path = src/dependencies/catalyst
 	url = https://github.com/decentraland/catalyst
+[submodule "src/dependencies/kernel"]
+	path = src/dependencies/kernel
+	url = https://github.com/decentraland/kernel

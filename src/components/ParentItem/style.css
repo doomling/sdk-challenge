@@ -1,10 +1,16 @@
 .item-name {
   padding: 10px 15px;
+  cursor: pointer;
+  max-width: 300px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  color: #000;
 }
 
 .item-name:hover {
-  border-radius: 15px;
+  border-radius: 8px;
   background: rgba(0, 0, 0, 0.03);
+  font-weight: 500;
 }
 
 .children-wrapper {

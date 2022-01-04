@@ -7,11 +7,12 @@ interface Props {
   name: string;
   formattedName: string;
   path?: string;
-  children: JSX.Element[] | false;
+  children?: JSX.Element | JSX.Element[] | false;
   depth: number;
+  noCaret?: boolean;
 }
 
-function ParentItem({ name, depth, children, formattedName }: Props) {
+function ParentItem({ name, depth, children, formattedName, noCaret }: Props) {
   const params = useParams();
   const [open, setOpen] = useState(isInPath());
 
@@ -30,11 +31,13 @@ function ParentItem({ name, depth, children, formattedName }: Props) {
         onClick={() => setOpen((prevState) => !prevState)}
       >
         {formattedName}
-        <img
-          src={caret}
-          className={open ? "caret open" : "caret"}
-          alt="toggle menu"
-        />
+        {!noCaret && (
+          <img
+            src={caret}
+            className={open ? "caret open" : "caret"}
+            alt="toggle menu"
+          />
+        )}
       </div>
       <div className={open ? "children-wrapper" : "children-wrapper collapsed"}>
         {children}

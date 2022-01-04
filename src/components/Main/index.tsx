@@ -2,7 +2,7 @@ import { Section } from "decentraland-ui";
 import "./style.css";
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
 function Main({ children }: Props) {

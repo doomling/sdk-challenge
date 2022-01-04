@@ -1,17 +1,7 @@
-.directory {
-  max-height: auto;
-  color: blue;
-  text-decoration: underline;
-  transition: all 1s ease-in;
-}
-
-.closed {
-  transition: all 1s ease-in;
-  max-height: 0;
-}
-
 .link {
-  padding: 0 15px;
+  display: inline-block;
+  padding: 5px 15px;
+  text-transform: capitalize;
 }
 
 .link.active {

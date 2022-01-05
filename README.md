@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+## Static docs site generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Static site that bundles together the technical documentation of [Decentraland](https://github.com/decentraland) various repositories.
 
-## Available Scripts
+Created with typescript, create-react-app and react-router.
 
-In the project directory, you can run:
+This repo uses other decentraland repositories as git submodules and generates a static site from the data in each docs/ folder
 
-### `yarn start`
+## Running locally
 
-Runs the app in the development mode.\
+`npm install`
+`npm run generate-local-data` ← this script will fetch all submodules and cleanup every folder except for docs/
+`npm start` runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Adding a new submodule
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you want to add a new repository to generate the docs:
 
-### `yarn build`
+`cd src/dependencies`
+`git submodule add “repository_url”` (ex: git submodule add [](https://github.com/decentraland/decentraland-rpc)[https://github.com/decentraland/decentraland-rpc](https://github.com/decentraland/decentraland-rpc) )
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Don’t forget to commit the repository reference inside the dependencies folder and .gitmodules file, otherwise it won’t work on the remote
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deploy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm run generate-deploy-data` will generate the local data file from the updated repositories, generate a production build, rename index.html to 200.html (see [](https://surge.sh/help/adding-a-200-page-for-client-side-routing)[https://surge.sh/help/adding-a-200-page-for-client-side-routing](https://surge.sh/help/adding-a-200-page-for-client-side-routing)) and deploy to surge
 
-### `yarn eject`
+## Live version
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Live version deploys a new version on each deploy to main branch. It also updates everyday at 5am UTC.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[](https://sdk-challenge-doom.surge.sh/)[https://sdk-challenge-doom.surge.sh/](https://sdk-challenge-doom.surge.sh/)

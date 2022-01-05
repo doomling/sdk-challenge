@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
 import importedDocs from "./../../data/documents.json";
 import { Docs } from "types/Docs";
 import Tree from "../../components/Tree";
 import ParentItem from "components/ParentItem";
 import "./style.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface Props {
   responsive?: boolean;

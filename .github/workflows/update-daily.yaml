@@ -1,0 +1,26 @@
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: "10 * * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 16
+
+      - name: Build React App
+        run: |
+          npm install
+          npm run generate-deploy-data
+
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Deploy to Surge
+        run: surge ./build https://sdk-challenge-doom.surge.sh/ --token ${{secrets.SURGE_TOKEN}}

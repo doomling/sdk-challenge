@@ -10,3 +10,6 @@
 [submodule "src/dependencies/unity-renderer"]
 	path = src/dependencies/unity-renderer
 	url = https://github.com/decentraland/unity-renderer
+[submodule "src/dependencies/doom-test"]
+	path = src/dependencies/doom-test
+	url = https://github.com/doomling/doom-test

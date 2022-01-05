@@ -27,7 +27,7 @@ function ParentItem({ name, depth, children, formattedName, noCaret }: Props) {
       className="directory-container"
     >
       <div
-        className="item-name"
+        className="tree-item-name"
         onClick={() => setOpen((prevState) => !prevState)}
       >
         {formattedName}
@@ -39,7 +39,11 @@ function ParentItem({ name, depth, children, formattedName, noCaret }: Props) {
           />
         )}
       </div>
-      <div className={open ? "children-wrapper" : "children-wrapper collapsed"}>
+      <div
+        className={
+          open ? "tree-children-wrapper" : "tree-children-wrapper collapsed"
+        }
+      >
         {children}
       </div>
     </div>

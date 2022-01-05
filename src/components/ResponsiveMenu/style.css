@@ -1,0 +1,9 @@
+.responsive-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .responsive-menu {
+    display: block;
+  }
+}

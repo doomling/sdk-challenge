@@ -1,4 +1,18 @@
-aside {
+.side-menu {
   min-width: 250px;
   max-width: 350px;
+  background-color: #fff;
+}
+
+@media (max-width: 900px) {
+  .side-menu {
+    position: fixed;
+    left: -1000px;
+    height: 100%;
+    max-width: 50%;
+  }
+
+  .side-menu.open {
+    left: 0;
+  }
 }

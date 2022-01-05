@@ -1,11 +1,10 @@
-import { Page, Navbar, Section, Header } from "decentraland-ui";
+import { Page, Section, Header } from "decentraland-ui";
 import Sidebar from "components/Sidebar";
 import Main from "components/Main";
 
 export default function Home() {
   return (
     <Page>
-      <Navbar />
       <Section className="flex">
         <Sidebar />
         <Main>

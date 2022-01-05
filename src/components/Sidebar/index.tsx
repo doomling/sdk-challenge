@@ -6,16 +6,19 @@ import ParentItem from "components/ParentItem";
 import "./style.css";
 import { Link } from "react-router-dom";
 
+interface Props {
+  responsive?: boolean;
+}
+
 const docs: Docs = importedDocs;
 
 const folders = Object.keys(docs).filter((item: string) => {
   return docs[item].parentId === 0;
 });
 
-export default function Sidebar() {
+export default function Sidebar({ responsive }: Props) {
   return (
-    <aside>
-      <Header>Table of contents</Header>
+    <aside className={responsive ? "side-menu open" : "side-menu"}>
       <Link to="/">
         <ParentItem
           formattedName={"Home"}

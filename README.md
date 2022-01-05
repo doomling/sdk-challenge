@@ -24,7 +24,9 @@ Don’t forget to commit the repository reference inside the dependencies folder
 
 ## Deploy
 
-`npm run generate-deploy-data` will generate the local data file from the updated repositories, generate a production build, rename index.html to 200.html (see [](https://surge.sh/help/adding-a-200-page-for-client-side-routing)[https://surge.sh/help/adding-a-200-page-for-client-side-routing](https://surge.sh/help/adding-a-200-page-for-client-side-routing)) and deploy to surge
+`npm run generate-deploy-data` will generate the local data file from the updated repositories, generate a production build, rename index.html to 200.html (see [](https://surge.sh/help/adding-a-200-page-for-client-side-routing)[https://surge.sh/help/adding-a-200-page-for-client-side-routing](https://surge.sh/help/adding-a-200-page-for-client-side-routing))
+
+The final build is deployed to [https://surge.sh](https://surge.sh/) by Github Actions
 
 ## Live version
 

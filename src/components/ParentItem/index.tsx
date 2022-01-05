@@ -21,6 +21,8 @@ function ParentItem({ name, depth, children, formattedName, noCaret }: Props) {
     return pathArr?.includes(name) || name === params.repo || name === "docs";
   }
 
+  console.log(name, open);
+
   return (
     <div
       style={{ paddingLeft: `${10 * depth}px` }}
@@ -40,9 +42,7 @@ function ParentItem({ name, depth, children, formattedName, noCaret }: Props) {
         )}
       </div>
       <div
-        className={
-          open ? "tree-children-wrapper" : "tree-children-wrapper collapsed"
-        }
+        className={open ? "tree-children-wrapper" : "tree-children-collapsed"}
       >
         {children}
       </div>

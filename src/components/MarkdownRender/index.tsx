@@ -11,7 +11,7 @@ function MarkdownRender() {
 
   useEffect(() => {
     function getContent() {
-      import(`../../dependencies/${params.repo}/docs/${params["*"]}`).then(
+      import(`../../dependencies/${params.repo}/docs/${params["*"]}.md`).then(
         async (data) => {
           const md = await fetch(data.default);
           const mdData = await md.text();

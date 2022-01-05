@@ -18,7 +18,7 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
   const isActive = getIsActive();
 
   function getIsActive() {
-    return getFileName() === name;
+    return getFileName() === removeExtension(name);
   }
 
   function getFileName() {
@@ -30,8 +30,14 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
     return items[id];
   }
 
+  // TO-DO: move to utils, handle any extension
+
+  function removeExtension(name: string) {
+    return name.replace(".md", "");
+  }
+
   function nameFormatter(name: string) {
-    return name.replace(new RegExp("-", "g"), " ").replace(".md", "");
+    return removeExtension(name.replace(new RegExp("-", "g"), " "));
   }
 
   return (
@@ -63,7 +69,10 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
         )
       ) : (
         <div style={{ paddingLeft: `${10 * depth}px` }}>
-          <Link className={isActive ? "active link" : "link"} to={`/${path}`}>
+          <Link
+            className={isActive ? "active link" : "link"}
+            to={`/${removeExtension(path!)}`}
+          >
             {nameFormatter(name)}
           </Link>
         </div>

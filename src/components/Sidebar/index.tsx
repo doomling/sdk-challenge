@@ -1,4 +1,3 @@
-import { Header } from "decentraland-ui";
 import importedDocs from "./../../data/documents.json";
 import { Docs } from "types/Docs";
 import Tree from "../../components/Tree";

@@ -7,9 +7,10 @@
 @media (max-width: 900px) {
   .side-menu {
     margin-top: 8px;
-    position: fixed;
+    position: absolute;
     left: -1000px;
-    height: 100%;
+    height: auto;
+    box-sizing: border-box;
     width: 100%;
     border-top: 1px solid var(--divider);
   }

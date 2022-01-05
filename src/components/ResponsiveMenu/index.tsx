@@ -14,7 +14,7 @@ export default function ResponsiveMenu() {
 
   return (
     <div className="responsive-menu">
-      <span onClick={(e) => setOpen(!open)}>
+      <span onClick={() => setOpen((prevState) => !prevState)}>
         <ParentItem depth={0} name="Docs" formattedName="DOCS"></ParentItem>
       </span>
       <Sidebar responsive={open} />

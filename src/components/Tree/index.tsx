@@ -21,21 +21,36 @@ function Tree({ isDirectory, name, path, children, items, depth }: Props) {
     return getFileName() === removeExtension(name);
   }
 
+  /**
+   * @notice get current filename from url path
+   */
   function getFileName() {
     const pathArr: string[] | undefined = params["*"]?.split("/");
     return pathArr && pathArr[pathArr.length - 1];
   }
 
+  /**
+   * @notice get item information
+   * @params id of the item to retrieve
+   */
   function getItem(id: number) {
     return items[id];
   }
 
+  /**
+   * @notice removes extension to use as path
+   * @params name raw string to format
+   */
   // TO-DO: move to utils, handle any extension
 
   function removeExtension(name: string) {
     return name.replace(".md", "");
   }
 
+  /**
+   * @notice Formats name in readable human form
+   * @params name raw string to format
+   */
   function nameFormatter(name: string) {
     return removeExtension(name.replace(new RegExp("-", "g"), " "));
   }

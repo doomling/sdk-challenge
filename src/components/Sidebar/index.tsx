@@ -19,12 +19,7 @@ export default function Sidebar({ responsive }: Props) {
   return (
     <aside className={responsive ? "side-menu open" : "side-menu"}>
       <Link to="/">
-        <ParentItem
-          formattedName={"Home"}
-          name="home"
-          depth={0}
-          noCaret
-        ></ParentItem>
+        <ParentItem formattedName={"Home"} name="home" depth={0} noCaret />
       </Link>
       {folders.map((folder, key) => {
         const { isDirectory, name, path, children } = docs[folder];

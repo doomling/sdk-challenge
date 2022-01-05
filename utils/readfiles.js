@@ -7,6 +7,13 @@ let missingFolders = 1;
 
 mapFoldersAndFiles("dependencies");
 
+/**
+ * @notice Generates dependencies mapping from file structure
+ * @param name Name of the folder to navigate
+ * @param parentId A numeric id used to indicate a relationship between parents and children
+ * @param files The recursively generated file structure
+ */
+
 function mapFoldersAndFiles(name, parentId = currentId, files = {}) {
   const directoryPath = path.join(__dirname, `./../src/${name}`);
   return new Promise((resolve, reject) => {
@@ -44,6 +51,11 @@ function mapFoldersAndFiles(name, parentId = currentId, files = {}) {
     });
   });
 }
+
+/**
+ * @notice Writes dependency mapping as JSON file
+ * @param files An object containing the recursively generated file structure
+ */
 
 function writeFile(files) {
   fs.writeFile("./src/data/documents.json", JSON.stringify(files), (err) => {

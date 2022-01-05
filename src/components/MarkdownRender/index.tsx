@@ -6,7 +6,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import "./style.css";
 
 function MarkdownRender() {
-  const [markdown, setMarkdown] = useState("");
+  const [markdown, setMarkdown] = useState<string>("");
   const params = useParams();
 
   useEffect(() => {
@@ -23,11 +23,11 @@ function MarkdownRender() {
     getContent();
   }, [params]);
 
-  const transformImageUri = (input: any) => {
+  function transformImageUri(input: string) {
     // not ideal but it's a start
     const formattedUrl = `https://raw.githubusercontent.com/decentraland/${params.repo}/master/docs/${input}`;
     return formattedUrl;
-  };
+  }
 
   return (
     <ReactMarkdown

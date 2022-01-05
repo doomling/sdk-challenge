@@ -16,12 +16,14 @@ function ParentItem({ name, depth, children, formattedName, noCaret }: Props) {
   const params = useParams();
   const [open, setOpen] = useState(isInPath());
 
+  /**
+   * @notice checks if current name is part of the href route
+   */
+
   function isInPath() {
     const pathArr: string[] | undefined = params["*"]?.split("/");
     return pathArr?.includes(name) || name === params.repo || name === "docs";
   }
-
-  console.log(name, open);
 
   return (
     <div
